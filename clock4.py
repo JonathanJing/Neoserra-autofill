@@ -129,10 +129,12 @@ def tick(hour_total):
     else:
         week_left = 20 - hour_week
 
-    if week_left > hour_total:
-        hour_left = hour_total - hour_today
-    else:
+    if week_left < hour_total:
         hour_left = week_left - hour_today
+    else:
+        hour_left = hour_total - hour_today
+    #hour_left = hour_total - hour_today
+
     time_lougout = logout_time(time_check, hour_left)
     return status, hour_today, time_lougout, lunch_time
 
